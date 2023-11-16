@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<TabPane fx:id="airlinetickets" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="latihanmf7.Controler.FXMLTiketController">
+  <tabs>
+    <Tab fx:id="formoder" text="Form Order">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: cyan;">
+               <children>
+                  <Label layoutX="104.0" layoutY="4.0" text="WELCOME WPA AIRLINES">
+                     <font>
+                        <Font name="Bernard MT Condensed" size="45.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="10.0" layoutY="66.0" text="Costumer Name">
+                     <font>
+                        <Font name="Voyager Light" size="32.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="10.0" layoutY="149.0" text="Destinations">
+                     <font>
+                        <Font name="Voyager Light" size="32.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="10.0" layoutY="243.0" text="Payment method">
+                     <font>
+                        <Font name="Voyager Light" size="32.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtcostumer" layoutX="14.0" layoutY="111.0" prefHeight="26.0" prefWidth="359.0" style="-fx-cursor: text;" />
+                  <ComboBox fx:id="chbdestination" layoutX="14.0" layoutY="198.0" prefHeight="26.0" prefWidth="359.0" style="-fx-cursor: hand;" />
+                  <ComboBox fx:id="chbpaymentmetod" layoutX="12.0" layoutY="289.0" prefHeight="26.0" prefWidth="359.0" style="-fx-cursor: hand;" />
+                  <Button fx:id="orderbtn" layoutX="449.0" layoutY="290.0" mnemonicParsing="false" onAction="#orderclick" style="-fx-background-color: green; -fx-cursor: hand;" text="Order" textFill="WHITE">
+                     <effect>
+                        <Glow level="0.69">
+                           <input>
+                              <DropShadow>
+                                 <input>
+                                    <Lighting>
+                                       <bumpInput>
+                                          <Shadow />
+                                       </bumpInput>
+                                       <light>
+                                          <Light.Distant />
+                                       </light>
+                                    </Lighting>
+                                 </input>
+                              </DropShadow>
+                           </input>
+                        </Glow>
+                     </effect>
+                     <font>
+                        <Font name="Cooper Black" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="resetbtn" layoutX="508.0" layoutY="290.0" mnemonicParsing="false" onAction="#resetclick" style="-fx-background-color: GOLD; -fx-cursor: hand;" text="Reset" textFill="WHITE">
+                     <effect>
+                        <Glow level="0.69">
+                           <input>
+                              <DropShadow>
+                                 <input>
+                                    <Lighting>
+                                       <bumpInput>
+                                          <Shadow />
+                                       </bumpInput>
+                                       <light>
+                                          <Light.Distant />
+                                       </light>
+                                    </Lighting>
+                                 </input>
+                              </DropShadow>
+                           </input>
+                        </Glow>
+                     </effect>
+                     <font>
+                        <Font name="Cooper Black" size="12.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="395.0" layoutY="66.0" text="Quantity">
+                     <font>
+                        <Font name="Voyager Light" size="32.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtqty" layoutX="397.0" layoutY="111.0" prefHeight="26.0" prefWidth="189.0" style="-fx-cursor: text;" />
+                  <Button fx:id="closebtninput" layoutX="548.0" mnemonicParsing="false" onAction="#closeclick" style="-fx-background-color: red; -fx-cursor: hand;" text="X" textFill="WHITE">
+                     <effect>
+                        <Glow level="0.69">
+                           <input>
+                              <DropShadow>
+                                 <input>
+                                    <Lighting>
+                                       <bumpInput>
+                                          <Shadow />
+                                       </bumpInput>
+                                       <light>
+                                          <Light.Distant />
+                                       </light>
+                                    </Lighting>
+                                 </input>
+                              </DropShadow>
+                           </input>
+                        </Glow>
+                     </effect>
+                     <font>
+                        <Font name="Cooper Black" size="12.0" />
+                     </font>
+                  </Button>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+    <Tab fx:id="invoice" onSelectionChanged="#invoice_event" text="Invoice">
+         <content>
+            <ScrollPane prefHeight="400.0" prefWidth="600.0">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="360.0" prefWidth="700.0" style="-fx-background-color: magenta;">
+                     <children>
+                        <Label layoutX="299.0" layoutY="4.0" text="INVOICE">
+                           <font>
+                              <Font name="Bernard MT Condensed" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="5.0" layoutY="30.0" text="Costumer Name">
+                           <font>
+                              <Font name="Voyager Light" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="5.0" layoutY="60.0" text="dESTINATION">
+                           <font>
+                              <Font name="Voyager Light" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="5.0" layoutY="90.0" text="PAYMENT METHOD">
+                           <font>
+                              <Font name="Voyager Light" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="5.0" layoutY="120.0" text="ENTRY FEE">
+                           <font>
+                              <Font name="Voyager Light" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="5.0" layoutY="150.0" text="Ticket FEE">
+                           <font>
+                              <Font name="Voyager Light" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="5.0" layoutY="180.0" prefWidth="643.0" text="----------------------------------------------------------------------------- +">
+                           <font>
+                              <Font name="Voyager Light" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="5.0" layoutY="210.0" text="Subtotal">
+                           <font>
+                              <Font name="Voyager Light" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="5.0" layoutY="240.0" text="tax">
+                           <font>
+                              <Font name="Voyager Light" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="5.0" layoutY="300.0" text="payments">
+                           <font>
+                              <Font name="Voyager Light" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="175.0" layoutY="30.0" text=":">
+                           <font>
+                              <Font name="Voyager Light" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="175.0" layoutY="60.0" text=":">
+                           <font>
+                              <Font name="Voyager Light" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="175.0" layoutY="90.0" text=":">
+                           <font>
+                              <Font name="Voyager Light" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="175.0" layoutY="120.0" text=":">
+                           <font>
+                              <Font name="Voyager Light" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="175.0" layoutY="150.0" text=":">
+                           <font>
+                              <Font name="Voyager Light" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="175.0" layoutY="210.0" text=":">
+                           <font>
+                              <Font name="Voyager Light" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="175.0" layoutY="240.0" text=":">
+                           <font>
+                              <Font name="Voyager Light" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="175.0" layoutY="300.0" text=":">
+                           <font>
+                              <Font name="Voyager Light" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="costumer_name" layoutX="185.0" layoutY="30.0" text="LABEL">
+                           <font>
+                              <Font name="Voyager Light" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="destinationlbl" layoutX="185.0" layoutY="60.0" text="LABEL">
+                           <font>
+                              <Font name="Voyager Light" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="paymentmetod" layoutX="185.0" layoutY="90.0" text="LABEL">
+                           <font>
+                              <Font name="Voyager Light" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="entryfreelbl" layoutX="185.0" layoutY="120.0" text="LABEL">
+                           <font>
+                              <Font name="Voyager Light" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="tickefeelbl" layoutX="185.0" layoutY="150.0" text="LABEL">
+                           <font>
+                              <Font name="Voyager Light" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="subtotallbl" layoutX="505.0" layoutY="210.0" text="LABEL">
+                           <font>
+                              <Font name="Voyager Light" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="taxlbl" layoutX="505.0" layoutY="240.0" text="LABEL">
+                           <font>
+                              <Font name="Voyager Light" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="paymentslbl" layoutX="505.0" layoutY="300.0" text="LABEL">
+                           <font>
+                              <Font name="Voyager Light" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="325.0" layoutY="120.0" text="X">
+                           <font>
+                              <Font name="Voyager Light" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="qtyentreefeelbl" layoutX="345.0" layoutY="120.0" text="LABEL">
+                           <font>
+                              <Font name="Voyager Light" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="325.0" layoutY="150.0" text="X">
+                           <font>
+                              <Font name="Voyager Light" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="qtyticketfeelbl" layoutX="345.0" layoutY="150.0" text="LABEL">
+                           <font>
+                              <Font name="Voyager Light" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="485.0" layoutY="150.0" text="=">
+                           <font>
+                              <Font name="Voyager Light" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="485.0" layoutY="120.0" text="=">
+                           <font>
+                              <Font name="Voyager Light" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="totalentryfreelbl" layoutX="505.0" layoutY="120.0" text="LABEL">
+                           <font>
+                              <Font name="Voyager Light" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="totalticketfeelbl" layoutX="505.0" layoutY="150.0" text="LABEL">
+                           <font>
+                              <Font name="Voyager Light" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="5.0" layoutY="270.0" prefWidth="643.0" text="----------------------------------------------------------------------------- +">
+                           <font>
+                              <Font name="Voyager Light" size="14.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="closebtnoutput" layoutX="645.0" mnemonicParsing="false" onAction="#closeclick" style="-fx-background-color: red; -fx-cursor: hand;" text="X" textFill="WHITE">
+                           <effect>
+                              <Glow level="0.69">
+                                 <input>
+                                    <DropShadow>
+                                       <input>
+                                          <Lighting>
+                                             <bumpInput>
+                                                <Shadow />
+                                             </bumpInput>
+                                             <light>
+                                                <Light.Distant />
+                                             </light>
+                                          </Lighting>
+                                       </input>
+                                    </DropShadow>
+                                 </input>
+                              </Glow>
+                           </effect>
+                           <font>
+                              <Font name="Cooper Black" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="Backbtn" layoutX="590.0" mnemonicParsing="false" onAction="#Backbtn" style="-fx-background-color: lightblue; -fx-cursor: hand;" text="&lt;" textFill="WHITE">
+                           <effect>
+                              <Glow level="0.69">
+                                 <input>
+                                    <DropShadow>
+                                       <input>
+                                          <Lighting>
+                                             <bumpInput>
+                                                <Shadow />
+                                             </bumpInput>
+                                             <light>
+                                                <Light.Distant />
+                                             </light>
+                                          </Lighting>
+                                       </input>
+                                    </DropShadow>
+                                 </input>
+                              </Glow>
+                           </effect>
+                           <font>
+                              <Font name="Cooper Black" size="12.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </ScrollPane>
+         </content>
+    </Tab>
+  </tabs>
+</TabPane>
