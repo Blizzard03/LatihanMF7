@@ -181,8 +181,8 @@ public class FXMLTiketController implements Initializable {
             double totalprice = totalticket_fee + totalentry_fee; 
             double totaltax=tax*Entryfee;
             if(totalprice>100000000){
-                entrydiscount = 500000-Entryfee;
-            }else if(){
+                entrydiscount = 500000-totalentry_fee;
+            }else if(totalprice>50000000){
                 
             }
             destinationlbl.setText(Destinations);
