@@ -10,8 +10,8 @@ package latihanmf7.Model;
  */
 public class AirportTicketModels {
 
-    private String Costumer_name;
-    private int qty, destination,creditcard_number,payment_method;
+    private String Costumer_name,creditcard_number;
+    private int qty, destination,payment_method;
 
     public int getPayment_method() {
         return payment_method;
@@ -45,14 +45,15 @@ public class AirportTicketModels {
         this.destination = destination;
     }
 
-    public int getCreditcard_number() {
+    public String getCreditcard_number() {
         return creditcard_number;
     }
 
-    public void setCreditcard_number(int creditcard_number) {
+    public void setCreditcard_number(String creditcard_number) {
         this.creditcard_number = creditcard_number;
     }
-    
+
+
     
 
     

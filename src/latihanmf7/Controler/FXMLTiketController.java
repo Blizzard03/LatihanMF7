@@ -11,6 +11,7 @@ import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -22,6 +23,7 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
+import javafx.stage.WindowEvent;
 import latihanmf7.Model.AirportTicketModels;
 
 /**
@@ -37,7 +39,7 @@ public class FXMLTiketController implements Initializable {
     //Curency Formatter
     Locale Indonesia = new Locale("in", "ID");
     NumberFormat formater = NumberFormat.getCurrencyInstance(Indonesia);
-    
+
     @FXML
     private Tab formoder;
     @FXML
@@ -106,7 +108,7 @@ public class FXMLTiketController implements Initializable {
         ));
         chbpaymentmetod.getSelectionModel().select(0);
     }
-    
+
     @FXML
     private void orderclick(ActionEvent event) {
         if (txtcostumer.getText().isEmpty()) {
@@ -166,7 +168,7 @@ public class FXMLTiketController implements Initializable {
                     Alert art = new Alert(Alert.AlertType.WARNING, "The Field is null Please Input Your Credit Card", ButtonType.YES);
                     art.showAndWait();
                 } else {
-                    mdls.setCreditcard_number(Integer.parseInt(txt.getResult()));
+                    mdls.setCreditcard_number(txt.getResult());
                     paymentmetod.setText("Credit Card" + "\t" + "(" + " " + String.valueOf(mdls.getCreditcard_number()) + " " + ")");
                     ticketdiscount = 100000;
                     airlinetickets.getSelectionModel().select(1);
@@ -175,15 +177,18 @@ public class FXMLTiketController implements Initializable {
                 paymentmetod.setText("Cash");
                 ticketdiscount = 0;
             }
-            
+
             double totalticket_fee = ((mdls.getQty() * ticket_fee) - ticketdiscount);
             double totalentry_fee = mdls.getQty() * Entryfee;
-            double totalprice = totalticket_fee + totalentry_fee; 
-            double totaltax=tax*Entryfee;
-            if(totalprice>100000000){
-                entrydiscount = 500000-Entryfee;
-            }else if(){
-                
+            double totalprice = totalticket_fee + totalentry_fee;
+            double totaltax = tax * Entryfee;
+            double payments = totaltax + totalprice;
+            if (totalprice > 100000000) {
+                entrydiscount = 500000 - Entryfee;
+            } else if (totalprice > 50000000) {
+                entrydiscount = 200000 - Entryfee;
+            } else if (totalprice > 20000000) {
+                entrydiscount = 100000 - Entryfee;
             }
             destinationlbl.setText(Destinations);
             tickefeelbl.setText(formater.format(ticket_fee));
@@ -193,9 +198,10 @@ public class FXMLTiketController implements Initializable {
             totalticketfeelbl.setText(formater.format(totalticket_fee));
             totalentryfreelbl.setText(formater.format(totalentry_fee));
             subtotallbl.setText(formater.format(totalprice));
+            paymentslbl.setText(formater.format(payments));
         }
     }
-    
+
     @FXML
     private void resetclick(ActionEvent event) {
         Alert art = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure this data will be reset?", ButtonType.YES, ButtonType.NO);
@@ -209,19 +215,27 @@ public class FXMLTiketController implements Initializable {
             txtcostumer.requestFocus();
         }
     }
-    
+
     @FXML
     private void closeclick(ActionEvent event) {
-        System.exit(0);
+
+        Alert al = new Alert(Alert.AlertType.CONFIRMATION, "Are You Sure Want Quit The Program?", ButtonType.OK, ButtonType.CANCEL);
+        al.showAndWait();
+        if (al.getResult().equals(ButtonType.OK)) {
+            System.exit(0);
+        }
     }
-    
+
     @FXML
     private void Backbtn(ActionEvent event) {
+
         txtcostumer.setText("");
         txtcostumer.requestFocus();
-        
+        chbdestination.getSelectionModel().select(0);
+        chbpaymentmetod.getSelectionModel().select(0);
+
     }
-    
+
     @FXML
     private void invoice_event(Event event
     ) {
@@ -235,5 +249,5 @@ public class FXMLTiketController implements Initializable {
             }
         }
     }
-    
+
 }
